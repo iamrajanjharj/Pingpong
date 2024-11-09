@@ -20,14 +20,25 @@ document.addEventListener("DOMContentLoaded", () => {
     ball.style.left = `${ballX}px`;
     ball.style.top = `${ballY}px`;
 
+    //collision of the ball with the paddle
+
+    if (
+      ballX < paddle.offsetLeft + paddle.offsetWidth &&
+      ballY > paddle.offsetTop &&
+      ballY - ball.offsetHeight < paddle.offsetTop + paddle.offsetHeight
+    ) {
+      dX *= -1;
+    }
+
     if (ballX > table.offsetWidth - ball.offsetWidth || ballX <= 0) dX *= -1; // reverse horizontal direction
     if (ballY > table.offsetHeight - ball.offsetHeight || ballY <= 0) dY *= -1; // reverse vertical direction
   }, 1);
 
   let paddleY = 0;
-  let dPy = 5; // displacement of paddle in vertical direction
+  let dPy = 10; // displacement of paddle in vertical direction
 
   document.addEventListener("keydown", (event) => {
+    event.preventDefault(); // prevents the execution of default behavior
     if (
       event.keyCode == 40 &&
       paddleY < table.offsetHeight - paddle.offsetHeight
