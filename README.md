@@ -10,8 +10,6 @@ Welcome to the **Ping Pong Game**! This simple yet fun game uses HTML, CSS, and 
 
 ## 🚀 Demo
 
-![Ping Pong Game](https://example.com/screenshot.png)
-
 _Screenshot of the game in action!_
 ![Pingpong Game Screenshot](image.png)
 
@@ -34,18 +32,6 @@ Pingpong/
 - **HTML5**: Structure of the game interface
 - **CSS3**: Styling and layout of game elements
 - **JavaScript**: Game logic and animations
-
----
-
-## 🖼️ Screenshots
-
-### Main Screen
-
-![Main Screen](https://example.com/main_screen.png)
-
-### Gameplay Snapshot
-
-![Gameplay](https://example.com/gameplay.png)
 
 ---
 
