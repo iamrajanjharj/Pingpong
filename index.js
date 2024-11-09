@@ -23,4 +23,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (ballX > table.offsetWidth - ball.offsetWidth || ballX <= 0) dX *= -1; // reverse horizontal direction
     if (ballY > table.offsetHeight - ball.offsetHeight || ballY <= 0) dY *= -1; // reverse vertical direction
   }, 1);
+
+  let paddleY = 0;
+  let dPy = 5; // displacement of paddle in vertical direction
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.keyCode == 40 &&
+      paddleY < table.offsetHeight - paddle.offsetHeight
+    ) {
+      paddleY += dPy;
+    } else if (event.keyCode == 38 && paddleY > 0) {
+      paddleY -= dPy;
+    }
+    paddle.style.top = `${paddleY}px`;
+  });
 });
