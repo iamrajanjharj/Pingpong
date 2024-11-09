@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (
       ballX < paddle.offsetLeft + paddle.offsetWidth &&
       ballY > paddle.offsetTop &&
-      ballY - ball.offsetHeight < paddle.offsetTop + paddle.offsetHeight
+      ballY + ball.offsetHeight < paddle.offsetTop + paddle.offsetHeight
     ) {
       dX *= -1;
     }
@@ -47,6 +47,20 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (event.keyCode == 38 && paddleY > 0) {
       paddleY -= dPy;
     }
+    paddle.style.top = `${paddleY}px`;
+  });
+
+  document.addEventListener("mousemove", (event) => {
+    let mouseDistanceFromTop = event.clientY; // this is the dist of the mouse from the top of the screen
+    let distanceOfTableFromTop = table.offsetTop;
+
+    let mousePointControl =
+      mouseDistanceFromTop - distanceOfTableFromTop - paddle.offsetHeight / 2;
+    paddleY = mousePointControl;
+    // if bottom of the paddle touches bottom of the table return
+    if (paddleY <= 0 || paddleY > table.offsetHeight - paddle.offsetHeight)
+      return;
+
     paddle.style.top = `${paddleY}px`;
   });
 });
